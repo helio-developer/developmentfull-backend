@@ -195,10 +195,10 @@ app.get("/admin", authMiddleware.verificarToken, authMiddleware.soloAdmin, funct
 
 
 
-
+const PORT = process.env.PORT || 3000;
 app.listen(3000, function(){
 
-  console.log("Servidor en puerto 3000");
+  console.log("Servidor en puerto "+ PORT);
 });
 
 
