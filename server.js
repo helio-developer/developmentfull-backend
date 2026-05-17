@@ -38,6 +38,14 @@ app.post("/usuarios", async function(req, res){
   });
 
 
+  app.get("/usuarios", async function(req, res){
+    const resultado= await pool.query(
+      "SELECT * FROM usuarios"
+    );
+
+    res.json(resultado.rows);
+  });
+
 
 
 app.get("/usuarios/:nombre", function(req, res){
