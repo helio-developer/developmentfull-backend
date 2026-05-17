@@ -1,6 +1,7 @@
 require("dotenv").config();
-const cors= require("cors");
+
 const express = require("express");
+const cors= require("cors");
 const app = express();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -8,9 +9,10 @@ const usuariosController = require("./controllers/usuariosController");
 const usuariosRoutes = require("./routes/usuariosRoutes");
 const authMiddleware = require("./middleware/authMiddleware");
 const pool= require("./database/db");
+app.use(cors());
 app.use(express.json());
 app.use(usuariosRoutes);
-app.use(cors());
+
 
 
 
