@@ -1,4 +1,5 @@
 require("dotenv").config();
+const cors= require("cors");
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
@@ -9,6 +10,7 @@ const authMiddleware = require("./middleware/authMiddleware");
 const pool= require("./database/db");
 app.use(express.json());
 app.use(usuariosRoutes);
+app.use(cors());
 
 
 
@@ -196,7 +198,8 @@ app.get("/admin", authMiddleware.verificarToken, authMiddleware.soloAdmin, funct
 
 
 const PORT = process.env.PORT || 3000;
-app.listen(3000, function(){
+
+app.listen(PORT, function(){
 
   console.log("Servidor en puerto "+ PORT);
 });
