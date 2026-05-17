@@ -161,7 +161,7 @@ app.post("/login", async function(req, res){
     
     {
       id: usuario.id,
-      rol: usuario.rol
+      /*rol: usuario.rol*/
     },
 
     process.env.JWT_SECRET,
