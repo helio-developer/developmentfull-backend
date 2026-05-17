@@ -160,7 +160,7 @@ app.post("/login", async function(req, res){
   const token = jwt.sign(
     
     {
-      id: usuario.id,
+      id: usuario.id
       /*rol: usuario.rol*/
     },
 
