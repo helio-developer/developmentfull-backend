@@ -42,7 +42,7 @@ app.post("/usuarios", async function(req, res){
 
   app.get("/usuarios", async function(req, res){
     const resultado= await pool.query(
-      "SELECT * FROM usuarios"
+      "SELECT id, nombre, dinero, rol FROM usuarios"
     );
 
     res.json(resultado.rows);
