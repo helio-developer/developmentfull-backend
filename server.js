@@ -23,7 +23,7 @@ let usuarios=[
 
 
 
-app.post("/usuarios", async function(req, res){
+app.post("/usuarios", authMiddleware.verificarToken, async function(req, res){
   
   const nombre = req.body.nombre;
   const dinero = req.body.dinero
@@ -87,7 +87,7 @@ app.get("/eliminar/:nombre", function(req,res){
 });
 
 
-app.put("/usuarios/:id", async function(req, res){
+app.put("/usuarios/:id", authMiddleware.verificarToken, async function(req, res){
   const id = req.params.id;
   const nombre = req.body.nombre;
   const dinero = req.body.dinero;
@@ -101,7 +101,7 @@ app.put("/usuarios/:id", async function(req, res){
 });
 
 
-app.delete("/usuarios/:id", async function(req, res){
+app.delete("/usuarios/:id", authMiddleware.verificarToken, async function(req, res){
   const id = req.params.id;
   await pool.query(
     "DELETE FROM usuarios WHERE id = $1",
